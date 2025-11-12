@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { useMacStore } from "../store";
-
+import { Canvas } from "@react-three/fiber";
+import { Box, OrbitControls } from "@react-three/drei";
 export function ProductView() {
   const { color, scale, setColor, setScale } = useMacStore();
   return (
@@ -49,7 +50,13 @@ export function ProductView() {
           </div>
         </div>
       </div>
-      <p className="text-white text-4xl">Render Canvas</p>
+      <Canvas
+        id="canvas"
+        camera={{ position: [0, 3, 5], fov: 50, near: 0.1, far: 1000 }}
+      >
+        <Box position={[-1, 1, -1]} scale={10 * scale} material-color={color} />
+        <OrbitControls enableZoom={false} />
+      </Canvas>
     </section>
   );
 }
