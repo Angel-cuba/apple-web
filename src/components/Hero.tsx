@@ -3,7 +3,12 @@ export default function Hero() {
     <section id="hero">
       <div>
         <h1>Mac Book Pro 16"</h1>
-        <img src="/title.png" alt="Mac Book Pro 16 inch" />
+        <img
+          src="/title.png"
+          alt="Mac Book Pro 16 inch"
+          width="800"
+          height="600"
+        />
       </div>
       <video src="/videos/hero.mp4" autoPlay muted playsInline />
       <button>Buy</button>

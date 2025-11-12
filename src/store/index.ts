@@ -8,12 +8,15 @@ interface IMacStore {
   reset: () => void;
 }
 
+const DEFAULT_SCALE = 0.08;
+const DEFAULT_COLOR = "#2e2c2e";
+
 export const useMacStore = create<IMacStore>((set) => ({
-  color: "#2e2c2e",
+  color: DEFAULT_COLOR,
   setColor: (color: string) => set({ color }),
 
-  scale: 0.08,
+  scale: DEFAULT_SCALE,
   setScale: (scale: number) => set({ scale }),
 
-  reset: () => set({ color: "#2e2c2e", scale: 0.08 }),
+  reset: () => set({ color: DEFAULT_COLOR, scale: DEFAULT_SCALE }),
 }));
