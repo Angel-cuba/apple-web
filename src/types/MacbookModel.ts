@@ -1,4 +1,3 @@
-// src/types/MacbookModel16.ts
 import type { GLTF } from "three-stdlib";
 import type { Mesh, Material, BufferGeometry } from "three";
 
