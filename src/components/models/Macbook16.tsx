@@ -1,4 +1,4 @@
-// src/components/MacbookModel16.tsx
+// src/components/models/Macbook16.tsx
 import { type JSX } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import type { MacbookGLTFResult } from "../../types/MacbookModel";
