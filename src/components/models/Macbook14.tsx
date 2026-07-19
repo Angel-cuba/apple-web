@@ -1,19 +1,36 @@
-import { type JSX } from "react";
+import { useMemo, type JSX } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
+import { MeshStandardMaterial } from "three";
 import type { MacbookGLTFResult } from "../../types/MacbookModel";
 
-export function MacbookModel14(props: JSX.IntrinsicElements["group"]) {
+type MacbookModelProps = JSX.IntrinsicElements["group"] & {
+  finishColor?: string;
+};
+
+export function MacbookModel14({
+  finishColor = "#2e2c2e",
+  ...props
+}: MacbookModelProps) {
   const { nodes, materials } = useGLTF(
     "/models/macbook-14-transformed.glb",
   ) as unknown as MacbookGLTFResult;
 
   const texture = useTexture("/screen.png");
+  const finishMaterial = useMemo(
+    () =>
+      new MeshStandardMaterial({
+        color: finishColor,
+        metalness: 0.82,
+        roughness: 0.27,
+      }),
+    [finishColor],
+  );
 
   return (
     <group {...props} dispose={null}>
       <mesh
         geometry={nodes.Object_10.geometry}
-        material={materials.PaletteMaterial001}
+        material={finishMaterial}
         rotation={[Math.PI / 2, 0, 0]}
       />
       <mesh
@@ -23,7 +40,7 @@ export function MacbookModel14(props: JSX.IntrinsicElements["group"]) {
       />
       <mesh
         geometry={nodes.Object_20.geometry}
-        material={materials.PaletteMaterial002}
+        material={finishMaterial}
         rotation={[Math.PI / 2, 0, 0]}
       />
       <mesh
@@ -88,7 +105,7 @@ export function MacbookModel14(props: JSX.IntrinsicElements["group"]) {
       />
       <mesh
         geometry={nodes.Object_96.geometry}
-        material={materials.PaletteMaterial003}
+        material={finishMaterial}
         rotation={[Math.PI / 2, 0, 0]}
       />
       <mesh
@@ -105,7 +122,7 @@ export function MacbookModel14(props: JSX.IntrinsicElements["group"]) {
       </mesh>
       <mesh
         geometry={nodes.Object_127.geometry}
-        material={materials.ZCDwChwkbBfITSW}
+        material={finishMaterial}
         rotation={[Math.PI / 2, 0, 0]}
       />
     </group>

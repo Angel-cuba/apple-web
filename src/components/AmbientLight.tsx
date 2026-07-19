@@ -3,7 +3,7 @@ import { Environment, Lightformer } from "@react-three/drei";
 export const AmbientLight = () => {
   return (
     <group>
-      <Environment resolution={256} background>
+      <Environment resolution={256}>
         <group>
           <Lightformer
             form="rect"
